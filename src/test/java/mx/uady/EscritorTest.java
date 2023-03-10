@@ -41,13 +41,18 @@ public class EscritorTest extends TestCase {
         escritor.setWriter(writer);
 
         List<String> palabras = new LinkedList<>();
-        palabras.add("hola");
-        palabras.add("alumnos");
+        palabras.add("hola"); // 2
+        palabras.add("alumnos"); // 2
+        palabras.add("devops"); // 2
+        palabras.add("devops"); // 2
+        palabras.add("devops"); // 2
+        palabras.add("devops"); // 2
+        palabras.add("devops"); // 2
 
         escritor.escribir(palabras);
 
-        verify(writer, times(4)).append(Mockito.anyString());
-        verify(writer, times(2)).flush();
+        verify(writer, times(palabras.size() * 2)).append(Mockito.anyString());
+        verify(writer, times(palabras.size())).flush();
 
         verify(writer, times(1)).close();
 

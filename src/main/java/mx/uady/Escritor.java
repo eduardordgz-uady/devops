@@ -48,6 +48,7 @@ public class Escritor {
 
                 writer.append(p);
                 writer.append(System.lineSeparator());
+                writer.append(System.lineSeparator());
                 writer.flush();
                 
             } catch (IOException e) {
